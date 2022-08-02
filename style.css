@@ -18,8 +18,14 @@
     border-color: rgb(160, 160, 160);
     border-radius: 10px;
 }
-.btnAdd a:hover{
-    transform: scale (2.1);
+
+/* Boton volver */
+.btnBack{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(160, 160, 160);
+    border-color: rgb(160, 160, 160);
+    border-radius: 10px;
 }
 
 /* Productos */

@@ -174,4 +174,22 @@ function actualizarCarrito (){
 
 actualizarCarrito();
 
+//Fetch
+let url = 'https://apis.datos.gob.ar/georef/api/provincias?nombre=Mendoza';
+fetch(url)
+    .then(function (response) { 
+        return response.json()
+    }) 
+    .then(function (data) { 
+        const nombreProvincia = data.parametros.nombre;
+        const latitudProvincia = data.provincias[0].centroide.lat;
+        const longitudProvincia = data.provincias[0].centroide.lon;
+/*      console.log(data.parametros.nombre);
+        console.log(data.provincias[0].centroide.lat);
+        console.log(data.provincias[0].centroide.lon); */
+    })
+    .catch(function (error) { 
+        console.error(error); 
+        response();
+    });
     

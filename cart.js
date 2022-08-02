@@ -19,8 +19,8 @@ function showCart() {
     if(cart.length == 0){
         const text = `
         <div class='cartContainer'>
-            <h1 class='txtCart mt-3'> El carrito está vacío </h1>
-            <a class='btnBack' href='products.html'>
+            <h1 class='txtCart mt-3 text-center'> El carrito está vacío </h1>
+            <a class='btnBack' href='index.html'>
                 <button>Volver</button>
             </a>
         </div>
@@ -71,9 +71,6 @@ function showCart() {
                 const cartCards = `
                 <tr id=${id}>
                     <th>
-                    <button class='btn btn-danger btnDelete'>
-                        <img src="./Imágenes/trash.png" alt="icono-trash" width="20px">                        
-                    </button>
                     </th>
                     <th class='tableDetails'><img class='imgProductCart'src=${img} alt='Imagen-producto><spam class='productName' width="70px">${name}</span></th>
                     <th>${quantity}</th>
@@ -83,17 +80,17 @@ function showCart() {
                 tbody.innerHTML += cartCards;
                 
             }
-            // const btnCancel = document.getElementsByClassName('btnCancel');
 
-            // //Vaciar carrito
-            // btnCancel[0].onclick = () =>{
-            //     cart.length = 0;
-            //     const totalPrice = document.getElementById('total');
-            //     totalPrice.innerText = "";
-            //     cartCounter.innerText = (cart.length);
-            //     localStorage.setItem('cart',[]);
-            //     actualizarCarrito();
-            // }
+//Vaciar carrito
+const btnCancel = document.getElementsByClassName('btnCancel');
+        btnCancel[0].onclick = () =>{
+            cart.length = 0;
+            const totalPrice = document.getElementById('total');
+            totalPrice.innerText = "";
+            cartCounter.innerText = (cart.length);
+            localStorage.setItem('cart',[]);
+            actualizarCarrito();
+        }
     } 
 }
 
@@ -105,18 +102,7 @@ function actualizarCarrito (){
     counter.innerHTML = cart.length
 }
 
-//Eliminar producto carrito
 
-const deleteProduct = (prodId) => {
-    const product = cart.find((product) => product.id === prodId)
-    const indice = cart.indexOf(product)
-    cart.splice(indice,1)
-    localStorage.setItem('cart', JSON.stringify(cart));
-    deleteProductCart();
-    actualizarCarrito();
-}
-let deleteProductCart = document.getElementsByClassName('btnDelete');
-deleteProductCart.onclick = deleteProduct
 
 //Sweet Alert
 const finishingPurchase = () => {
